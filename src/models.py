@@ -22,6 +22,7 @@ class BasicConvClassifier(nn.Module):
         self.head = nn.Sequential(
             nn.AdaptiveAvgPool1d(1),
             Rearrange("b d 1 -> b d"),
+            nn.Dropout(p=0.5),
             nn.Linear(hid_dim, num_classes),
         )
 

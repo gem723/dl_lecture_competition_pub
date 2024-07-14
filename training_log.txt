@@ -1,65 +1,66 @@
 Epoch 1/20
 Current learning rate: 0.000994
-Epoch 1/20 | train loss: 7.529 | train acc: 0.008 | val loss: 7.506 | val acc: 0.011
+Epoch 1/20 | train loss: 7.534 | train acc: 0.008 | val loss: 7.508 | val acc: 0.010
 New best.
 Epoch 2/20
 Current learning rate: 0.000976
-Epoch 2/20 | train loss: 7.481 | train acc: 0.013 | val loss: 7.481 | val acc: 0.014
+Epoch 2/20 | train loss: 7.507 | train acc: 0.009 | val loss: 7.497 | val acc: 0.013
 New best.
 Epoch 3/20
 Current learning rate: 0.000946
-Epoch 3/20 | train loss: 7.421 | train acc: 0.017 | val loss: 7.482 | val acc: 0.015
+Epoch 3/20 | train loss: 7.479 | train acc: 0.013 | val loss: 7.477 | val acc: 0.014
 New best.
 Epoch 4/20
 Current learning rate: 0.000905
-Epoch 4/20 | train loss: 7.357 | train acc: 0.022 | val loss: 7.499 | val acc: 0.016
+Epoch 4/20 | train loss: 7.438 | train acc: 0.016 | val loss: 7.472 | val acc: 0.015
 New best.
 Epoch 5/20
 Current learning rate: 0.000854
-Epoch 5/20 | train loss: 7.290 | train acc: 0.027 | val loss: 7.533 | val acc: 0.015
+Epoch 5/20 | train loss: 7.402 | train acc: 0.018 | val loss: 7.478 | val acc: 0.016
+New best.
 Epoch 6/20
 Current learning rate: 0.000794
-Epoch 6/20 | train loss: 7.222 | train acc: 0.032 | val loss: 7.568 | val acc: 0.014
+Epoch 6/20 | train loss: 7.368 | train acc: 0.021 | val loss: 7.486 | val acc: 0.015
 Epoch 7/20
 Current learning rate: 0.000727
-Epoch 7/20 | train loss: 7.154 | train acc: 0.037 | val loss: 7.619 | val acc: 0.014
+Epoch 7/20 | train loss: 7.338 | train acc: 0.023 | val loss: 7.491 | val acc: 0.016
 Epoch 8/20
 Current learning rate: 0.000655
-Epoch 8/20 | train loss: 7.083 | train acc: 0.044 | val loss: 7.659 | val acc: 0.013
+Epoch 8/20 | train loss: 7.307 | train acc: 0.025 | val loss: 7.503 | val acc: 0.015
 Epoch 9/20
 Current learning rate: 0.000578
-Epoch 9/20 | train loss: 7.015 | train acc: 0.051 | val loss: 7.696 | val acc: 0.012
+Epoch 9/20 | train loss: 7.280 | train acc: 0.028 | val loss: 7.512 | val acc: 0.015
 Epoch 10/20
 Current learning rate: 0.000500
-Epoch 10/20 | train loss: 6.949 | train acc: 0.058 | val loss: 7.722 | val acc: 0.012
+Epoch 10/20 | train loss: 7.255 | train acc: 0.030 | val loss: 7.513 | val acc: 0.015
 Epoch 11/20
 Current learning rate: 0.000422
-Epoch 11/20 | train loss: 6.887 | train acc: 0.066 | val loss: 7.763 | val acc: 0.012
+Epoch 11/20 | train loss: 7.232 | train acc: 0.032 | val loss: 7.521 | val acc: 0.015
 Epoch 12/20
 Current learning rate: 0.000345
-Epoch 12/20 | train loss: 6.826 | train acc: 0.075 | val loss: 7.815 | val acc: 0.011
+Epoch 12/20 | train loss: 7.212 | train acc: 0.033 | val loss: 7.532 | val acc: 0.015
 Epoch 13/20
 Current learning rate: 0.000273
-Epoch 13/20 | train loss: 6.776 | train acc: 0.082 | val loss: 7.823 | val acc: 0.010
+Epoch 13/20 | train loss: 7.193 | train acc: 0.034 | val loss: 7.540 | val acc: 0.014
 Epoch 14/20
 Current learning rate: 0.000206
-Epoch 14/20 | train loss: 6.734 | train acc: 0.088 | val loss: 7.874 | val acc: 0.011
+Epoch 14/20 | train loss: 7.178 | train acc: 0.034 | val loss: 7.545 | val acc: 0.014
 Epoch 15/20
 Current learning rate: 0.000146
-Epoch 15/20 | train loss: 6.694 | train acc: 0.095 | val loss: 7.884 | val acc: 0.011
+Epoch 15/20 | train loss: 7.164 | train acc: 0.037 | val loss: 7.549 | val acc: 0.014
 Epoch 16/20
 Current learning rate: 0.000095
-Epoch 16/20 | train loss: 6.667 | train acc: 0.100 | val loss: 7.898 | val acc: 0.011
+Epoch 16/20 | train loss: 7.153 | train acc: 0.038 | val loss: 7.552 | val acc: 0.014
 Epoch 17/20
 Current learning rate: 0.000054
-Epoch 17/20 | train loss: 6.645 | train acc: 0.103 | val loss: 7.898 | val acc: 0.011
+Epoch 17/20 | train loss: 7.144 | train acc: 0.039 | val loss: 7.550 | val acc: 0.014
 Epoch 18/20
 Current learning rate: 0.000024
-Epoch 18/20 | train loss: 6.631 | train acc: 0.105 | val loss: 7.908 | val acc: 0.011
+Epoch 18/20 | train loss: 7.139 | train acc: 0.040 | val loss: 7.555 | val acc: 0.014
 Epoch 19/20
 Current learning rate: 0.000006
-Epoch 19/20 | train loss: 6.625 | train acc: 0.106 | val loss: 7.911 | val acc: 0.011
+Epoch 19/20 | train loss: 7.135 | train acc: 0.039 | val loss: 7.555 | val acc: 0.014
 Epoch 20/20
 Current learning rate: 0.000000
-Epoch 20/20 | train loss: 6.623 | train acc: 0.107 | val loss: 7.891 | val acc: 0.011
-Submission (16432, 1854) saved at /content/dl_lecture_competition_pub/outputs/2024-07-14/08-35-26
+Epoch 20/20 | train loss: 7.135 | train acc: 0.039 | val loss: 7.552 | val acc: 0.014
+Submission (16432, 1854) saved at /content/dl_lecture_competition_pub/outputs/2024-07-14/08-51-40
