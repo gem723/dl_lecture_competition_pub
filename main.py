@@ -46,7 +46,11 @@ def run(args: DictConfig):
     # ------------------
     #     Optimizer
     # ------------------
-    optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
+    # オプティマイザーをAdamWに変更
+    optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
+
+    # 学習率スケジューラーを追加
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=args.epochs)
 
     # ------------------
     #   Start training
@@ -59,6 +63,13 @@ def run(args: DictConfig):
     for epoch in range(args.epochs):
         print(f"Epoch {epoch+1}/{args.epochs}")
         
+        # 学習率のスケジューリング
+        scheduler.step()
+    
+        # 現在の学習率をログに記録
+        current_lr = optimizer.param_groups[0]['lr']
+        print(f"Current learning rate: {current_lr:.6f}")
+
         train_loss, train_acc, val_loss, val_acc = [], [], [], []
         
         model.train()
