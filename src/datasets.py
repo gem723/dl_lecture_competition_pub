@@ -7,7 +7,7 @@ from scipy.signal import resample, butter, filtfilt
 from sklearn.preprocessing import StandardScaler
 
 class ThingsMEGDataset(torch.utils.data.Dataset):
-    def __init__(self, split: str, data_dir: str = "data", dtype: torch.dtype = torch.float32, processed_dir: str = "processed", original_rate: int = 200, target_rate: int = 200, lowcut: float = 12.0, highcut: float = 99.0) -> None:
+    def __init__(self, split: str, data_dir: str = "data", dtype: torch.dtype = torch.float32, processed_dir: str = "processed", original_rate: int = 200, target_rate: int = 100, lowcut: float = 12.0, highcut: float = 30.0) -> None:
         super().__init__()
         
         assert split in ["train", "val", "test"], f"Invalid split: {split}"
@@ -69,8 +69,8 @@ class ThingsMEGDataset(torch.utils.data.Dataset):
         del self.X
         torch.cuda.empty_cache()
 
-        # # リサンプリングを適用
-        # data_np = self.resample_data(data_np)
+        # リサンプリングを適用
+        data_np = self.resample_data(data_np)
 
         # フィルタリングを適用
         data_np = self.bandpass_filter(data_np)
@@ -84,15 +84,31 @@ class ThingsMEGDataset(torch.utils.data.Dataset):
         del data_np
         torch.cuda.empty_cache()
     
-    def resample_data(self, data: np.ndarray) -> np.ndarray:
-        """データのリサンプリングを行うメソッド"""
+    def resample_data(self, data: np.ndarray, chunk_size: int = 10000) -> np.ndarray:
+        """データのリサンプリングを行うメソッド（チャンク処理）"""
         print("リサンプリング開始")
-        num_samples = data.shape[-1]
+        num_trials, num_channels, num_samples = data.shape
         new_num_samples = int(num_samples * self.target_rate / self.original_rate)
-        data_resampled = resample(data, new_num_samples, axis=-1)
+
+        # 結果を格納するための配列を作成
+        data_resampled = np.empty((num_trials, num_channels, new_num_samples), dtype=data.dtype)
+
+        for start in range(0, num_trials, chunk_size):
+            end = min(start + chunk_size, num_trials)
+            data_chunk = data[start:end, :, :]
+
+            # 各チャンクに対してリサンプリングを適用
+            for i in range(data_chunk.shape[0]):
+                for channel in range(num_channels):
+                    data_resampled[start + i, channel, :] = resample(data_chunk[i, channel, :], new_num_samples)
+
+            # メモリの解放
+            del data_chunk
+            torch.cuda.empty_cache()
+
         return data_resampled
 
-    def bandpass_filter(self, data: np.ndarray, chunk_size: int = 100) -> np.ndarray:
+    def bandpass_filter(self, data: np.ndarray, chunk_size: int = 10000) -> np.ndarray:
         """データにバンドパスフィルタを適用するメソッド（チャンク処理とin-place処理）"""
         print("フィルタリング開始")
         nyquist = 0.5 * self.target_rate
