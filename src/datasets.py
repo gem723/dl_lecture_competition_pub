@@ -69,11 +69,11 @@ class ThingsMEGDataset(torch.utils.data.Dataset):
         del self.X
         torch.cuda.empty_cache()
 
-        # リサンプリングを適用
-        data_np = self.resample_data(data_np)
+        # # リサンプリングを適用
+        # data_np = self.resample_data(data_np)
 
-        # フィルタリングを適用
-        data_np = self.bandpass_filter(data_np)
+        # # フィルタリングを適用
+        # data_np = self.bandpass_filter(data_np)
         
         # データをスケーリング
         data_np = self.scale_data(data_np)
