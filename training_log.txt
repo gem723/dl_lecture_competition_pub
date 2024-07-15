@@ -88,250 +88,73 @@ Processed channel 251/271
 Processed channel 261/271
 Processed channel 271/271
 Saved processed data to processed/test_X_processed.pt
-Epoch 1/80
-Current learning rate: 0.001000
-Epoch 1/80 | train loss: 7.536 | train acc: 0.008 | val loss: 7.509 | val acc: 0.010
-New best.
-Epoch 2/80
-Current learning rate: 0.000998
-Epoch 2/80 | train loss: 7.506 | train acc: 0.010 | val loss: 7.491 | val acc: 0.013
-New best.
-Epoch 3/80
-Current learning rate: 0.000997
-Epoch 3/80 | train loss: 7.474 | train acc: 0.013 | val loss: 7.472 | val acc: 0.016
-New best.
-Epoch 4/80
+Epoch 1/20
 Current learning rate: 0.000994
-Epoch 4/80 | train loss: 7.435 | train acc: 0.017 | val loss: 7.467 | val acc: 0.016
+Epoch 1/20 | train loss: 7.531 | train acc: 0.008 | val loss: 7.507 | val acc: 0.010
 New best.
-Epoch 5/80
-Current learning rate: 0.000990
-Epoch 5/80 | train loss: 7.402 | train acc: 0.019 | val loss: 7.471 | val acc: 0.017
-New best.
-Epoch 6/80
-Current learning rate: 0.000986
-Epoch 6/80 | train loss: 7.371 | train acc: 0.020 | val loss: 7.477 | val acc: 0.017
-Epoch 7/80
-Current learning rate: 0.000981
-Epoch 7/80 | train loss: 7.341 | train acc: 0.022 | val loss: 7.482 | val acc: 0.017
-New best.
-Epoch 8/80
+Epoch 2/20
 Current learning rate: 0.000976
-Epoch 8/80 | train loss: 7.310 | train acc: 0.024 | val loss: 7.495 | val acc: 0.017
-Epoch 9/80
-Current learning rate: 0.000969
-Epoch 9/80 | train loss: 7.285 | train acc: 0.026 | val loss: 7.500 | val acc: 0.017
-Epoch 10/80
-Current learning rate: 0.000962
-Epoch 10/80 | train loss: 7.259 | train acc: 0.027 | val loss: 7.510 | val acc: 0.016
-Epoch 11/80
-Current learning rate: 0.000954
-Epoch 11/80 | train loss: 7.233 | train acc: 0.030 | val loss: 7.513 | val acc: 0.016
-Epoch 12/80
+Epoch 2/20 | train loss: 7.509 | train acc: 0.009 | val loss: 7.493 | val acc: 0.011
+New best.
+Epoch 3/20
 Current learning rate: 0.000946
-Epoch 12/80 | train loss: 7.209 | train acc: 0.032 | val loss: 7.529 | val acc: 0.015
-Epoch 13/80
-Current learning rate: 0.000936
-Epoch 13/80 | train loss: 7.185 | train acc: 0.034 | val loss: 7.539 | val acc: 0.016
-Epoch 14/80
-Current learning rate: 0.000926
-Epoch 14/80 | train loss: 7.164 | train acc: 0.035 | val loss: 7.548 | val acc: 0.015
-Epoch 15/80
-Current learning rate: 0.000916
-Epoch 15/80 | train loss: 7.136 | train acc: 0.038 | val loss: 7.558 | val acc: 0.015
-Epoch 16/80
+Epoch 3/20 | train loss: 7.485 | train acc: 0.012 | val loss: 7.476 | val acc: 0.014
+New best.
+Epoch 4/20
 Current learning rate: 0.000905
-Epoch 16/80 | train loss: 7.115 | train acc: 0.039 | val loss: 7.563 | val acc: 0.014
-Epoch 17/80
-Current learning rate: 0.000893
-Epoch 17/80 | train loss: 7.089 | train acc: 0.041 | val loss: 7.579 | val acc: 0.015
-Epoch 18/80
-Current learning rate: 0.000880
-Epoch 18/80 | train loss: 7.070 | train acc: 0.045 | val loss: 7.587 | val acc: 0.014
-Epoch 19/80
-Current learning rate: 0.000867
-Epoch 19/80 | train loss: 7.047 | train acc: 0.044 | val loss: 7.599 | val acc: 0.014
-Epoch 20/80
+Epoch 4/20 | train loss: 7.456 | train acc: 0.014 | val loss: 7.465 | val acc: 0.015
+New best.
+Epoch 5/20
 Current learning rate: 0.000854
-Epoch 20/80 | train loss: 7.028 | train acc: 0.046 | val loss: 7.609 | val acc: 0.013
-Epoch 21/80
-Current learning rate: 0.000839
-Epoch 21/80 | train loss: 7.008 | train acc: 0.048 | val loss: 7.622 | val acc: 0.013
-Epoch 22/80
-Current learning rate: 0.000825
-Epoch 22/80 | train loss: 6.990 | train acc: 0.049 | val loss: 7.634 | val acc: 0.013
-Epoch 23/80
-Current learning rate: 0.000810
-Epoch 23/80 | train loss: 6.969 | train acc: 0.053 | val loss: 7.632 | val acc: 0.013
-Epoch 24/80
+Epoch 5/20 | train loss: 7.435 | train acc: 0.015 | val loss: 7.463 | val acc: 0.016
+New best.
+Epoch 6/20
 Current learning rate: 0.000794
-Epoch 24/80 | train loss: 6.948 | train acc: 0.055 | val loss: 7.653 | val acc: 0.013
-Epoch 25/80
-Current learning rate: 0.000778
-Epoch 25/80 | train loss: 6.930 | train acc: 0.057 | val loss: 7.651 | val acc: 0.012
-Epoch 26/80
-Current learning rate: 0.000761
-Epoch 26/80 | train loss: 6.915 | train acc: 0.058 | val loss: 7.667 | val acc: 0.013
-Epoch 27/80
-Current learning rate: 0.000744
-Epoch 27/80 | train loss: 6.898 | train acc: 0.061 | val loss: 7.675 | val acc: 0.012
-Epoch 28/80
+Epoch 6/20 | train loss: 7.417 | train acc: 0.016 | val loss: 7.464 | val acc: 0.017
+New best.
+Epoch 7/20
 Current learning rate: 0.000727
-Epoch 28/80 | train loss: 6.879 | train acc: 0.062 | val loss: 7.688 | val acc: 0.012
-Epoch 29/80
-Current learning rate: 0.000709
-Epoch 29/80 | train loss: 6.867 | train acc: 0.062 | val loss: 7.691 | val acc: 0.012
-Epoch 30/80
-Current learning rate: 0.000691
-Epoch 30/80 | train loss: 6.848 | train acc: 0.066 | val loss: 7.702 | val acc: 0.012
-Epoch 31/80
-Current learning rate: 0.000673
-Epoch 31/80 | train loss: 6.832 | train acc: 0.067 | val loss: 7.713 | val acc: 0.012
-Epoch 32/80
+Epoch 7/20 | train loss: 7.401 | train acc: 0.017 | val loss: 7.471 | val acc: 0.016
+Epoch 8/20
 Current learning rate: 0.000655
-Epoch 32/80 | train loss: 6.817 | train acc: 0.069 | val loss: 7.728 | val acc: 0.011
-Epoch 33/80
-Current learning rate: 0.000636
-Epoch 33/80 | train loss: 6.804 | train acc: 0.071 | val loss: 7.744 | val acc: 0.012
-Epoch 34/80
-Current learning rate: 0.000617
-Epoch 34/80 | train loss: 6.787 | train acc: 0.072 | val loss: 7.747 | val acc: 0.011
-Epoch 35/80
-Current learning rate: 0.000598
-Epoch 35/80 | train loss: 6.778 | train acc: 0.075 | val loss: 7.754 | val acc: 0.011
-Epoch 36/80
+Epoch 8/20 | train loss: 7.384 | train acc: 0.019 | val loss: 7.470 | val acc: 0.017
+Epoch 9/20
 Current learning rate: 0.000578
-Epoch 36/80 | train loss: 6.759 | train acc: 0.076 | val loss: 7.768 | val acc: 0.012
-Epoch 37/80
-Current learning rate: 0.000559
-Epoch 37/80 | train loss: 6.752 | train acc: 0.077 | val loss: 7.763 | val acc: 0.012
-Epoch 38/80
-Current learning rate: 0.000539
-Epoch 38/80 | train loss: 6.735 | train acc: 0.078 | val loss: 7.771 | val acc: 0.012
-Epoch 39/80
-Current learning rate: 0.000520
-Epoch 39/80 | train loss: 6.727 | train acc: 0.080 | val loss: 7.786 | val acc: 0.012
-Epoch 40/80
+Epoch 9/20 | train loss: 7.369 | train acc: 0.019 | val loss: 7.473 | val acc: 0.017
+Epoch 10/20
 Current learning rate: 0.000500
-Epoch 40/80 | train loss: 6.711 | train acc: 0.083 | val loss: 7.767 | val acc: 0.011
-Epoch 41/80
-Current learning rate: 0.000480
-Epoch 41/80 | train loss: 6.700 | train acc: 0.083 | val loss: 7.804 | val acc: 0.012
-Epoch 42/80
-Current learning rate: 0.000461
-Epoch 42/80 | train loss: 6.691 | train acc: 0.086 | val loss: 7.813 | val acc: 0.011
-Epoch 43/80
-Current learning rate: 0.000441
-Epoch 43/80 | train loss: 6.681 | train acc: 0.087 | val loss: 7.814 | val acc: 0.010
-Epoch 44/80
+Epoch 10/20 | train loss: 7.354 | train acc: 0.021 | val loss: 7.479 | val acc: 0.017
+New best.
+Epoch 11/20
 Current learning rate: 0.000422
-Epoch 44/80 | train loss: 6.669 | train acc: 0.086 | val loss: 7.814 | val acc: 0.012
-Epoch 45/80
-Current learning rate: 0.000402
-Epoch 45/80 | train loss: 6.661 | train acc: 0.091 | val loss: 7.823 | val acc: 0.012
-Epoch 46/80
-Current learning rate: 0.000383
-Epoch 46/80 | train loss: 6.646 | train acc: 0.091 | val loss: 7.837 | val acc: 0.012
-Epoch 47/80
-Current learning rate: 0.000364
-Epoch 47/80 | train loss: 6.641 | train acc: 0.092 | val loss: 7.834 | val acc: 0.011
-Epoch 48/80
+Epoch 11/20 | train loss: 7.340 | train acc: 0.022 | val loss: 7.483 | val acc: 0.018
+New best.
+Epoch 12/20
 Current learning rate: 0.000345
-Epoch 48/80 | train loss: 6.630 | train acc: 0.092 | val loss: 7.855 | val acc: 0.011
-Epoch 49/80
-Current learning rate: 0.000327
-Epoch 49/80 | train loss: 6.621 | train acc: 0.096 | val loss: 7.840 | val acc: 0.011
-Epoch 50/80
-Current learning rate: 0.000309
-Epoch 50/80 | train loss: 6.612 | train acc: 0.094 | val loss: 7.861 | val acc: 0.010
-Epoch 51/80
-Current learning rate: 0.000291
-Epoch 51/80 | train loss: 6.607 | train acc: 0.097 | val loss: 7.866 | val acc: 0.011
-Epoch 52/80
+Epoch 12/20 | train loss: 7.326 | train acc: 0.023 | val loss: 7.483 | val acc: 0.018
+New best.
+Epoch 13/20
 Current learning rate: 0.000273
-Epoch 52/80 | train loss: 6.599 | train acc: 0.097 | val loss: 7.875 | val acc: 0.011
-Epoch 53/80
-Current learning rate: 0.000256
-Epoch 53/80 | train loss: 6.594 | train acc: 0.096 | val loss: 7.866 | val acc: 0.011
-Epoch 54/80
-Current learning rate: 0.000239
-Epoch 54/80 | train loss: 6.581 | train acc: 0.099 | val loss: 7.887 | val acc: 0.011
-Epoch 55/80
-Current learning rate: 0.000222
-Epoch 55/80 | train loss: 6.578 | train acc: 0.099 | val loss: 7.877 | val acc: 0.011
-Epoch 56/80
+Epoch 13/20 | train loss: 7.315 | train acc: 0.023 | val loss: 7.489 | val acc: 0.018
+Epoch 14/20
 Current learning rate: 0.000206
-Epoch 56/80 | train loss: 6.573 | train acc: 0.099 | val loss: 7.878 | val acc: 0.011
-Epoch 57/80
-Current learning rate: 0.000190
-Epoch 57/80 | train loss: 6.567 | train acc: 0.102 | val loss: 7.874 | val acc: 0.011
-Epoch 58/80
-Current learning rate: 0.000175
-Epoch 58/80 | train loss: 6.562 | train acc: 0.101 | val loss: 7.863 | val acc: 0.011
-Epoch 59/80
-Current learning rate: 0.000161
-Epoch 59/80 | train loss: 6.559 | train acc: 0.102 | val loss: 7.890 | val acc: 0.011
-Epoch 60/80
+Epoch 14/20 | train loss: 7.302 | train acc: 0.025 | val loss: 7.489 | val acc: 0.018
+Epoch 15/20
 Current learning rate: 0.000146
-Epoch 60/80 | train loss: 6.551 | train acc: 0.104 | val loss: 7.886 | val acc: 0.011
-Epoch 61/80
-Current learning rate: 0.000133
-Epoch 61/80 | train loss: 6.544 | train acc: 0.105 | val loss: 7.886 | val acc: 0.010
-Epoch 62/80
-Current learning rate: 0.000120
-Epoch 62/80 | train loss: 6.540 | train acc: 0.108 | val loss: 7.898 | val acc: 0.010
-Epoch 63/80
-Current learning rate: 0.000107
-Epoch 63/80 | train loss: 6.537 | train acc: 0.105 | val loss: 7.878 | val acc: 0.011
-Epoch 64/80
+Epoch 15/20 | train loss: 7.293 | train acc: 0.025 | val loss: 7.493 | val acc: 0.017
+Epoch 16/20
 Current learning rate: 0.000095
-Epoch 64/80 | train loss: 6.530 | train acc: 0.106 | val loss: 7.891 | val acc: 0.011
-Epoch 65/80
-Current learning rate: 0.000084
-Epoch 65/80 | train loss: 6.524 | train acc: 0.107 | val loss: 7.907 | val acc: 0.011
-Epoch 66/80
-Current learning rate: 0.000074
-Epoch 66/80 | train loss: 6.519 | train acc: 0.107 | val loss: 7.886 | val acc: 0.010
-Epoch 67/80
-Current learning rate: 0.000064
-Epoch 67/80 | train loss: 6.520 | train acc: 0.109 | val loss: 7.895 | val acc: 0.011
-Epoch 68/80
+Epoch 16/20 | train loss: 7.283 | train acc: 0.026 | val loss: 7.496 | val acc: 0.017
+Epoch 17/20
 Current learning rate: 0.000054
-Epoch 68/80 | train loss: 6.517 | train acc: 0.108 | val loss: 7.894 | val acc: 0.011
-Epoch 69/80
-Current learning rate: 0.000046
-Epoch 69/80 | train loss: 6.513 | train acc: 0.108 | val loss: 7.920 | val acc: 0.011
-Epoch 70/80
-Current learning rate: 0.000038
-Epoch 70/80 | train loss: 6.516 | train acc: 0.109 | val loss: 7.891 | val acc: 0.011
-Epoch 71/80
-Current learning rate: 0.000031
-Epoch 71/80 | train loss: 6.514 | train acc: 0.108 | val loss: 7.886 | val acc: 0.010
-Epoch 72/80
+Epoch 17/20 | train loss: 7.280 | train acc: 0.026 | val loss: 7.496 | val acc: 0.018
+Epoch 18/20
 Current learning rate: 0.000024
-Epoch 72/80 | train loss: 6.513 | train acc: 0.110 | val loss: 7.908 | val acc: 0.010
-Epoch 73/80
-Current learning rate: 0.000019
-Epoch 73/80 | train loss: 6.507 | train acc: 0.110 | val loss: 7.920 | val acc: 0.011
-Epoch 74/80
-Current learning rate: 0.000014
-Epoch 74/80 | train loss: 6.507 | train acc: 0.110 | val loss: 7.900 | val acc: 0.011
-Epoch 75/80
-Current learning rate: 0.000010
-Epoch 75/80 | train loss: 6.502 | train acc: 0.111 | val loss: 7.896 | val acc: 0.011
-Epoch 76/80
+Epoch 18/20 | train loss: 7.275 | train acc: 0.027 | val loss: 7.498 | val acc: 0.018
+Epoch 19/20
 Current learning rate: 0.000006
-Epoch 76/80 | train loss: 6.505 | train acc: 0.111 | val loss: 7.912 | val acc: 0.011
-Epoch 77/80
-Current learning rate: 0.000003
-Epoch 77/80 | train loss: 6.507 | train acc: 0.110 | val loss: 7.905 | val acc: 0.011
-Epoch 78/80
-Current learning rate: 0.000002
-Epoch 78/80 | train loss: 6.502 | train acc: 0.111 | val loss: 7.908 | val acc: 0.010
-Epoch 79/80
+Epoch 19/20 | train loss: 7.272 | train acc: 0.027 | val loss: 7.496 | val acc: 0.018
+Epoch 20/20
 Current learning rate: 0.000000
-Epoch 79/80 | train loss: 6.508 | train acc: 0.111 | val loss: 7.900 | val acc: 0.011
-Epoch 80/80
-Current learning rate: 0.000000
-Epoch 80/80 | train loss: 6.502 | train acc: 0.111 | val loss: 7.901 | val acc: 0.011
-Submission (16432, 1854) saved at /content/dl_lecture_competition_pub/outputs/2024-07-15/11-32-07
+Epoch 20/20 | train loss: 7.272 | train acc: 0.027 | val loss: 7.497 | val acc: 0.018
+Submission (16432, 1854) saved at /content/dl_lecture_competition_pub/outputs/2024-07-15/12-31-38
