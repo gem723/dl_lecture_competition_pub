@@ -21,13 +21,15 @@ class ThingsMEGDataset(torch.utils.data.Dataset):
         self.highcut = highcut
         
         # 保存済みデータのパス
-        processed_file_path = os.path.join(processed_dir, f"{split}_X_processed.pt")
-        subject_idxs_path = os.path.join(processed_dir, f"{split}_subject_idxs_processed.pt")
-        
-        if os.path.exists(processed_file_path) and os.path.exists(subject_idxs_path):
+        processed_file_path = os.path.join(processed_dir, f"{split}_processed.pt")
+
+        if os.path.exists(processed_file_path):
             # 保存済みデータを読み込む
-            self.X = torch.load(processed_file_path).to(self.dtype)
-            self.subject_idxs = torch.load(subject_idxs_path)
+            data_dict = torch.load(processed_file_path)
+            self.X = data_dict['X'].to(self.dtype)
+            self.subject_idxs = data_dict['subject_idxs']
+            if 'y' in data_dict:
+                self.y = data_dict['y']
             print(f"Loaded processed data from {processed_file_path}")
         else:
             # 元データを読み込んで前処理を行う
@@ -43,8 +45,13 @@ class ThingsMEGDataset(torch.utils.data.Dataset):
 
             # 前処理後のデータを保存
             os.makedirs(processed_dir, exist_ok=True)
-            torch.save(self.X, processed_file_path)
-            torch.save(self.subject_idxs, subject_idxs_path)
+            data_dict = {
+                'X': self.X,
+                'subject_idxs': self.subject_idxs
+            }
+            if hasattr(self, 'y'):
+                data_dict['y'] = self.y
+            torch.save(data_dict, processed_file_path)
             print(f"Saved processed data to {processed_file_path}")
 
     def __len__(self) -> int:
