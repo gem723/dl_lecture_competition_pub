@@ -47,7 +47,8 @@ class ImprovedConvClassifier(nn.Module):
         in_channels: int,
         hid_dim: int = 128,
         nhead: int = 8,
-        num_layers: int = 3
+        num_layers: int = 3,
+        dropout_rate: float = 0.5
     ) -> None:
         super().__init__()
 
@@ -58,14 +59,14 @@ class ImprovedConvClassifier(nn.Module):
         )
         
         # トランスフォーマーエンコーダー層の追加
-        encoder_layers = TransformerEncoderLayer(hid_dim, nhead, hid_dim)
+        encoder_layers = TransformerEncoderLayer(hid_dim, nhead, hid_dim, dropout=dropout_rate)
         self.transformer_encoder = TransformerEncoder(encoder_layers, num_layers)
         
         # ヘッド部を定義（AdaptiveAvgPool1d, Dropout, Linear）
         self.head = nn.Sequential(
             nn.AdaptiveAvgPool1d(1),
             Rearrange("b d 1 -> b d"),
-            nn.Dropout(p=0.5),
+            nn.Dropout(p=dropout_rate),
             nn.Linear(hid_dim, num_classes),
         )
 
