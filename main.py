@@ -41,7 +41,23 @@ def run(args: DictConfig):
     # ------------------
     # モデルの初期化
     model = CLIPModel(
-        train_set.num_classes, train_set.seq_len, train_set.num_channels, embedding_dim=512
+        train_set.num_classes, train_set.seq_len, train_set.num_channels
+    ).to(args.device)
+
+    # 事前学習したモデルの読み込み
+    model.load_state_dict(torch.load("pretrained_clip_model.pth"))
+
+    print("Pretrained weights loaded successfully")
+
+    # 脳波エンコーダーのみをファインチューニング
+    for param in model.image_encoder.parameters():
+        param.requires_grad = False
+
+    # モデルの初期化
+    model = CLIPModel(
+        num_classes=train_set.num_classes,
+        seq_len=train_set.seq_len,
+        in_channels=train_set.num_channels
     ).to(args.device)
 
     # 事前学習したモデルの読み込み
@@ -49,25 +65,30 @@ def run(args: DictConfig):
     model_dict = model.state_dict()
 
     # 事前学習済みの重みを部分的にロード
-    pretrained_dict = {k: v for k, v in pretrained_dict.items() if k in model_dict}
+    pretrained_dict = {k: v for k, v in pretrained_dict.items() if k in model_dict and 're_classifier' not in k}
     model_dict.update(pretrained_dict)
     model.load_state_dict(model_dict)
 
     print("Pretrained weights loaded successfully")
 
-    # classifier層の初期化（オプション）
-    torch.nn.init.xavier_uniform_(model.classifier.weight)
-    torch.nn.init.zeros_(model.classifier.bias)
+    # re_classifierの初期化
+    torch.nn.init.xavier_uniform_(model.re_classifier.weight)
+    torch.nn.init.zeros_(model.re_classifier.bias)
 
-    # 脳波エンコーダーのみをファインチューニング
+    print("Re-classifier initialized")
+
+    # image_encoderのパラメータを凍結
     for param in model.image_encoder.parameters():
         param.requires_grad = False
 
     # ------------------
     #     Optimizer
     # ------------------
-    # オプティマイザーをAdamWに変更
-    optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
+    # オプティマイザの設定
+    optimizer = torch.optim.AdamW([
+        {'params': model.brainwave_encoder.parameters(), 'lr': args.lr * 0.1},  # 低い学習率
+        {'params': model.re_classifier.parameters(), 'lr': args.lr}  # 通常の学習率
+    ], weight_decay=args.weight_decay)
 
     # 学習率スケジューラーを追加
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=args.epochs)
@@ -82,10 +103,6 @@ def run(args: DictConfig):
       
     for epoch in range(args.epochs):
         print(f"Epoch {epoch+1}/{args.epochs}")
-    
-        # 現在の学習率をログに記録
-        current_lr = optimizer.param_groups[0]['lr']
-        print(f"Current learning rate: {current_lr:.6f}")
 
         train_loss, train_acc, val_loss, val_acc = [], [], [], []
         
@@ -127,6 +144,11 @@ def run(args: DictConfig):
         # 学習率のスケジューリング
         scheduler.step()
         
+        # 現在の学習率を表示
+        lr_brainwave = optimizer.param_groups[0]['lr']
+        lr_re_classifier = optimizer.param_groups[1]['lr']
+        print(f"Current learning rates - Brainwave Encoder: {lr_brainwave:.6f}, Re-classifier: {lr_re_classifier:.6f}")
+
         print(f"Epoch {epoch+1}/{args.epochs} | train loss: {np.mean(train_loss):.3f} | train acc: {np.mean(train_acc):.3f} | val loss: {np.mean(val_loss):.3f} | val acc: {np.mean(val_acc):.3f}")
         torch.save(model.state_dict(), os.path.join(logdir, "model_last.pt"))
         if args.use_wandb:

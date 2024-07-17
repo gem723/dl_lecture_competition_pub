@@ -19,7 +19,7 @@ def calculate_accuracy(logits, labels):
     correct = (predicted == labels).sum().item()
     return correct / labels.size(0)
 
-def pretrain(epochs=10, batch_size=32, lr=0.0001, num_workers=4):
+def pretrain(epochs=20, batch_size=32, lr=0.001, num_workers=4):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
     # データの読み込み
@@ -33,10 +33,20 @@ def pretrain(epochs=10, batch_size=32, lr=0.0001, num_workers=4):
     val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False, num_workers=num_workers)
 
     # モデルの初期化
-    model = CLIPModel(num_classes=1854, seq_len=train_brainwave_data.seq_len, in_channels=train_brainwave_data.num_channels, embedding_dim=512).to(device)
+    model = CLIPModel(
+        num_classes=train_brainwave_data.num_classes, 
+        seq_len=train_brainwave_data.seq_len, 
+        in_channels=train_brainwave_data.num_channels
+    ).to(device)
 
-    # オプティマイザとスケジューラの設定
-    optimizer = optim.Adam(model.parameters(), lr=lr)
+    # オプティマイザの設定（異なる学習率を使用）
+    optimizer = optim.Adam([
+        {'params': [param for name, param in model.image_encoder.cnn.named_parameters() if 'fc' not in name], 'lr': lr * 0},  # ResNet18の部分（fc以外）は学習率を0に
+        {'params': model.image_encoder.cnn.fc.parameters(), 'lr': lr * 0.1},  # fcの部分は低い学習率
+        {'params': model.brainwave_encoder.parameters(), 'lr': lr}  # BrainwaveEncoderは通常の学習率
+    ])
+
+    # スケジューラの設定
     scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=epochs)
 
     # 事前学習ループ
@@ -48,7 +58,7 @@ def pretrain(epochs=10, batch_size=32, lr=0.0001, num_workers=4):
         for images, brainwaves in tqdm(train_loader, desc=f"Epoch {epoch+1}/{epochs} - Training"):
             images, brainwaves = images.to(device), brainwaves.to(device)
             
-            image_embeddings, brainwave_embeddings = model(images, brainwaves)
+            image_embeddings, brainwave_embeddings = model(brainwaves, images)
             loss = contrastive_loss(image_embeddings, brainwave_embeddings)
             
             optimizer.zero_grad()
@@ -70,7 +80,7 @@ def pretrain(epochs=10, batch_size=32, lr=0.0001, num_workers=4):
             for images, brainwaves in tqdm(val_loader, desc=f"Epoch {epoch+1}/{epochs} - Validation"):
                 images, brainwaves = images.to(device), brainwaves.to(device)
                 
-                image_embeddings, brainwave_embeddings = model(images, brainwaves)
+                image_embeddings, brainwave_embeddings = model(brainwaves, images)
                 loss = contrastive_loss(image_embeddings, brainwave_embeddings)
                 
                 val_loss += loss.item()
@@ -81,10 +91,15 @@ def pretrain(epochs=10, batch_size=32, lr=0.0001, num_workers=4):
 
         scheduler.step()
 
+        # 現在の学習率を表示
+        lr_resnet = optimizer.param_groups[0]['lr']
+        lr_fc = optimizer.param_groups[1]['lr']
+        lr_brainwave = optimizer.param_groups[2]['lr']
+        print(f"Learning rates - ResNet: {lr_resnet:.6f}, FC: {lr_fc:.6f}, Brainwave Encoder: {lr_brainwave:.6f}")
         print(f"Epoch {epoch+1}/{epochs} | train loss: {train_loss:.3f} | train acc: {train_acc:.3f} | val loss: {val_loss:.3f} | val acc: {val_acc:.3f}")
 
     # 事前学習したモデルの保存
     torch.save(model.state_dict(), "pretrained_clip_model.pth")
 
 if __name__ == "__main__":
-    pretrain()
+    pretrain(epochs=1, batch_size=32, lr=0.001, num_workers=4)

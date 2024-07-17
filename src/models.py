@@ -6,30 +6,28 @@ from torch.nn import TransformerEncoder, TransformerEncoderLayer
 from torchvision.models import resnet18, ResNet18_Weights
 
 class ImageEncoder(nn.Module):
-    def __init__(self, embedding_dim):
+    def __init__(self, num_classes):
         super().__init__()
         self.cnn = resnet18(weights=ResNet18_Weights.IMAGENET1K_V1)
-        self.cnn.fc = nn.Linear(self.cnn.fc.in_features, embedding_dim)
+        self.cnn.fc = nn.Linear(self.cnn.fc.in_features, num_classes)
 
     def forward(self, x):
         return self.cnn(x)
 
 class BrainwaveEncoder(nn.Module):
-    def __init__(self, num_classes, seq_len, in_channels, embedding_dim):
+    def __init__(self, num_classes, seq_len, in_channels):
         super().__init__()
         self.conv_classifier = ImprovedConvClassifier(num_classes, seq_len, in_channels)
-        self.fc = nn.Linear(num_classes, embedding_dim)
 
     def forward(self, x):
-        x = self.conv_classifier(x)
-        return self.fc(x)
+        return self.conv_classifier(x)
 
 class CLIPModel(nn.Module):
-    def __init__(self, num_classes, seq_len, in_channels, embedding_dim):
+    def __init__(self, num_classes, seq_len, in_channels):
         super().__init__()
-        self.image_encoder = ImageEncoder(embedding_dim)
-        self.brainwave_encoder = BrainwaveEncoder(num_classes, seq_len, in_channels, embedding_dim)
-        self.classifier = nn.Linear(embedding_dim, num_classes)  # 追加
+        self.image_encoder = ImageEncoder(num_classes)
+        self.brainwave_encoder = BrainwaveEncoder(num_classes, seq_len, in_channels)
+        self.re_classifier = nn.Linear(num_classes, num_classes)
 
     def forward(self, brainwaves, images=None):
         if images is not None:
@@ -38,7 +36,7 @@ class CLIPModel(nn.Module):
             return image_embeddings, brainwave_embeddings
         else:
             brainwave_embeddings = self.brainwave_encoder(brainwaves)
-            return self.classifier(brainwave_embeddings)  # 修正
+            return self.re_classifier(brainwave_embeddings)
 
 class BasicConvClassifier(nn.Module):
     def __init__(
