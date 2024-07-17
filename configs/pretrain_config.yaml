@@ -1,0 +1,10 @@
+seed: 1234
+device: 'cuda:0'
+data_dir: 'data'
+batch_size: 64
+num_workers: 4
+feature_dim: 1536
+epochs: 1
+lr: 0.001
+weight_decay: 0.01
+use_wandb: False

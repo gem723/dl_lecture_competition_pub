@@ -41,27 +41,13 @@ def run(args: DictConfig):
     # ------------------
     # モデルの初期化
     model = CLIPModel(
-        train_set.num_classes, train_set.seq_len, train_set.num_channels
-    ).to(args.device)
-
-    # 事前学習したモデルの読み込み
-    model.load_state_dict(torch.load("pretrained_clip_model.pth"))
-
-    print("Pretrained weights loaded successfully")
-
-    # 脳波エンコーダーのみをファインチューニング
-    for param in model.image_encoder.parameters():
-        param.requires_grad = False
-
-    # モデルの初期化
-    model = CLIPModel(
         num_classes=train_set.num_classes,
         seq_len=train_set.seq_len,
         in_channels=train_set.num_channels
     ).to(args.device)
 
     # 事前学習したモデルの読み込み
-    pretrained_dict = torch.load("pretrained_clip_model.pth")
+    pretrained_dict = torch.load("pretrained_models/best_pretrained_clip_model.pth")
     model_dict = model.state_dict()
 
     # 事前学習済みの重みを部分的にロード
@@ -71,11 +57,11 @@ def run(args: DictConfig):
 
     print("Pretrained weights loaded successfully")
 
-    # re_classifierの初期化
-    torch.nn.init.xavier_uniform_(model.re_classifier.weight)
-    torch.nn.init.zeros_(model.re_classifier.bias)
+    # # re_classifierの初期化
+    # torch.nn.init.xavier_uniform_(model.re_classifier.weight)
+    # torch.nn.init.zeros_(model.re_classifier.bias)
 
-    print("Re-classifier initialized")
+    # print("Re-classifier initialized")
 
     # image_encoderのパラメータを凍結
     for param in model.image_encoder.parameters():

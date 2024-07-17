@@ -1,0 +1,9 @@
+Loaded processed data from processed/train_processed.pt
+Loaded processed data from processed/val_processed.pt
+Loaded processed data from processed/test_processed.pt
+Pretrained weights loaded successfully
+Epoch 1/1
+Current learning rates - Brainwave Encoder: 0.000000, Re-classifier: 0.000000
+Epoch 1/1 | train loss: 7.523 | train acc: 0.008 | val loss: 7.507 | val acc: 0.010
+New best.
+Submission (16432, 1854) saved at /content/dl_lecture_competition_pub/outputs/2024-07-17/15-14-02

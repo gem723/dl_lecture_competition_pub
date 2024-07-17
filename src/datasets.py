@@ -8,6 +8,18 @@ from sklearn.preprocessing import StandardScaler
 from PIL import Image
 from torchvision import transforms
 
+class CombinedCLIPDataset(torch.utils.data.Dataset):
+    def __init__(self, image_paths_file, brainwave_dataset, transform=None):
+        self.clip_dataset = CLIPDataset(image_paths_file, brainwave_dataset.X, transform)
+        self.brainwave_dataset = brainwave_dataset
+
+    def __len__(self):
+        return len(self.clip_dataset)
+
+    def __getitem__(self, idx):
+        image, _ = self.clip_dataset[idx]
+        brainwave, label, subject_idx = self.brainwave_dataset[idx]
+        return image, brainwave, label, subject_idx
 
 class CLIPDataset(torch.utils.data.Dataset):
     def __init__(self, image_paths_file, brainwave_data, transform=None):

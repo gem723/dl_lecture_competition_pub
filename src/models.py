@@ -3,31 +3,40 @@ import torch.nn as nn
 import torch.nn.functional as F
 from einops.layers.torch import Rearrange
 from torch.nn import TransformerEncoder, TransformerEncoderLayer
-from torchvision.models import resnet18, ResNet18_Weights
+from torchvision.models import convnext_large, ConvNeXt_Large_Weights
 
 class ImageEncoder(nn.Module):
-    def __init__(self, num_classes):
+    def __init__(self):
         super().__init__()
-        self.cnn = resnet18(weights=ResNet18_Weights.IMAGENET1K_V1)
-        self.cnn.fc = nn.Linear(self.cnn.fc.in_features, num_classes)
+        self.feature_extractor = convnext_large(weights=ConvNeXt_Large_Weights.IMAGENET1K_V1)
+        self.feature_extractor.classifier = nn.Identity()  # Remove the original classifier
+
+    def extract_features(self, x):
+        with torch.no_grad():
+            return self.feature_extractor(x)
 
     def forward(self, x):
-        return self.cnn(x)
+        return self.extract_features(x)
 
 class BrainwaveEncoder(nn.Module):
-    def __init__(self, num_classes, seq_len, in_channels):
+    def __init__(self, seq_len, in_channels, out_feature_dim=1536): # ConvNeXt-Largeの出力特徴量は1536次元
         super().__init__()
-        self.conv_classifier = ImprovedConvClassifier(num_classes, seq_len, in_channels)
+        self.conv_classifier = ImprovedConvClassifier(out_feature_dim, seq_len, in_channels)
 
     def forward(self, x):
         return self.conv_classifier(x)
 
 class CLIPModel(nn.Module):
-    def __init__(self, num_classes, seq_len, in_channels):
+    def __init__(self, num_classes, seq_len, in_channels, out_feature_dim=1536):
         super().__init__()
-        self.image_encoder = ImageEncoder(num_classes)
-        self.brainwave_encoder = BrainwaveEncoder(num_classes, seq_len, in_channels)
-        self.re_classifier = nn.Linear(num_classes, num_classes)
+        self.image_encoder = ImageEncoder()
+        self.brainwave_encoder = BrainwaveEncoder(seq_len, in_channels, out_feature_dim)
+        self.re_classifier = nn.Sequential(
+            nn.Linear(out_feature_dim, num_classes),
+            nn.Dropout(0.25),
+            nn.Linear(num_classes, num_classes),
+            nn.Dropout(0.25),
+        )
 
     def forward(self, brainwaves, images=None):
         if images is not None:
