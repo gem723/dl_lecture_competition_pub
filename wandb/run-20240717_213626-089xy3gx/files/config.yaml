@@ -1,0 +1,65 @@
+wandb_version: 1
+
+_metadata:
+  desc: null
+  value: 'ContainerMetadata(ref_type=typing.Any, object_type=<class ''dict''>, optional=True,
+    key=None, flags={''struct'': True}, flags_root=False, resolver_cache=defaultdict(<class
+    ''dict''>, {''now'': {(''%Y-%m-%d'',): ''2024-07-17'', (''%H-%M-%S'',): ''21-36-24''}}),
+    key_type=typing.Any, element_type=typing.Any)'
+_parent:
+  desc: null
+  value: null
+_flags_cache:
+  desc: null
+  value:
+    struct: true
+_content:
+  desc: null
+  value:
+    seed: '1234'
+    device: cuda:0
+    data_dir: data
+    batch_size: '64'
+    num_workers: '4'
+    feature_dim: '1536'
+    epochs: '10'
+    lr: '0.0001'
+    weight_decay: '0.01'
+    use_wandb: 'True'
+_wandb:
+  desc: null
+  value:
+    python_version: 3.10.12
+    cli_version: 0.15.0
+    framework: huggingface
+    huggingface_version: 4.41.2
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1721252186.358976
+    t:
+      1:
+      - 1
+      - 5
+      - 11
+      - 41
+      - 49
+      - 50
+      - 53
+      - 55
+      2:
+      - 1
+      - 5
+      - 11
+      - 41
+      - 49
+      - 50
+      - 53
+      - 55
+      3:
+      - 16
+      - 23
+      4: 3.10.12
+      5: 0.15.0
+      6: 4.41.2
+      8:
+      - 5

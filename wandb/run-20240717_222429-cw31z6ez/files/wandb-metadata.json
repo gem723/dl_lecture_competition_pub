@@ -1,0 +1,85 @@
+{
+    "os": "Linux-6.1.85+-x86_64-with-glibc2.35",
+    "python": "3.10.12",
+    "heartbeatAt": "2024-07-17T22:24:30.016276",
+    "startedAt": "2024-07-17T22:24:29.287943",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/content/dl_lecture_competition_pub/pretrain.py",
+    "codePath": "pretrain.py",
+    "git": {
+        "remote": "https://gem723:@github.com/gem723/dl_lecture_competition_pub.git",
+        "commit": "5e30bd1101cdf2b9016e79eecc64f1467df983f9"
+    },
+    "email": "sugiyamagen723@gmail.com",
+    "root": "/content/dl_lecture_competition_pub",
+    "host": "972e32d354b8",
+    "username": "root",
+    "executable": "/usr/bin/python3",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 2199.998,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2199.998,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2199.998,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2199.998,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2199.998,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2199.998,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2199.998,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2199.998,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2199.998,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "total": 201.22513961791992,
+        "used": 106.86492919921875
+    },
+    "gpu": "Tesla T4",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "Tesla T4",
+            "memory_total": 16106127360
+        }
+    ],
+    "memory": {
+        "total": 50.9936408996582
+    }
+}

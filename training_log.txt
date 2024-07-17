@@ -3,68 +3,69 @@ Loaded processed data from processed/val_processed.pt
 Loaded processed data from processed/test_processed.pt
 Pretrained weights loaded successfully
 Epoch 1/20
-Current learning rates - Brainwave Encoder: 0.000099, Re-classifier: 0.000994
-Epoch 1/20 | train loss: 7.563 | train acc: 0.007 | val loss: 7.539 | val acc: 0.005
+Current learning rates - Brainwave Encoder: 0.000099, Re-classifier: 0.000099
+Epoch 1/20 | train loss: 7.520 | train acc: 0.007 | val loss: 7.498 | val acc: 0.010
 New best.
 Epoch 2/20
-Current learning rates - Brainwave Encoder: 0.000098, Re-classifier: 0.000976
-Epoch 2/20 | train loss: 7.535 | train acc: 0.009 | val loss: 7.523 | val acc: 0.009
+Current learning rates - Brainwave Encoder: 0.000098, Re-classifier: 0.000098
+Epoch 2/20 | train loss: 7.504 | train acc: 0.007 | val loss: 7.499 | val acc: 0.010
 New best.
 Epoch 3/20
-Current learning rates - Brainwave Encoder: 0.000095, Re-classifier: 0.000946
-Epoch 3/20 | train loss: 7.530 | train acc: 0.010 | val loss: 7.523 | val acc: 0.010
-New best.
+Current learning rates - Brainwave Encoder: 0.000095, Re-classifier: 0.000095
+Epoch 3/20 | train loss: 7.501 | train acc: 0.008 | val loss: 7.493 | val acc: 0.010
 Epoch 4/20
-Current learning rates - Brainwave Encoder: 0.000090, Re-classifier: 0.000905
-Epoch 4/20 | train loss: 7.528 | train acc: 0.009 | val loss: 7.529 | val acc: 0.009
+Current learning rates - Brainwave Encoder: 0.000090, Re-classifier: 0.000090
+Epoch 4/20 | train loss: 7.500 | train acc: 0.008 | val loss: 7.493 | val acc: 0.010
 Epoch 5/20
-Current learning rates - Brainwave Encoder: 0.000085, Re-classifier: 0.000854
-Epoch 5/20 | train loss: 7.524 | train acc: 0.009 | val loss: 7.524 | val acc: 0.009
+Current learning rates - Brainwave Encoder: 0.000085, Re-classifier: 0.000085
+Epoch 5/20 | train loss: 7.499 | train acc: 0.008 | val loss: 7.493 | val acc: 0.010
 Epoch 6/20
-Current learning rates - Brainwave Encoder: 0.000079, Re-classifier: 0.000794
-Epoch 6/20 | train loss: 7.520 | train acc: 0.008 | val loss: 7.521 | val acc: 0.010
+Current learning rates - Brainwave Encoder: 0.000079, Re-classifier: 0.000079
+Epoch 6/20 | train loss: 7.497 | train acc: 0.008 | val loss: 7.493 | val acc: 0.010
 Epoch 7/20
-Current learning rates - Brainwave Encoder: 0.000073, Re-classifier: 0.000727
-Epoch 7/20 | train loss: 7.518 | train acc: 0.010 | val loss: 7.517 | val acc: 0.010
+Current learning rates - Brainwave Encoder: 0.000073, Re-classifier: 0.000073
+Epoch 7/20 | train loss: 7.494 | train acc: 0.010 | val loss: 7.493 | val acc: 0.010
 Epoch 8/20
-Current learning rates - Brainwave Encoder: 0.000065, Re-classifier: 0.000655
-Epoch 8/20 | train loss: 7.516 | train acc: 0.009 | val loss: 7.519 | val acc: 0.010
+Current learning rates - Brainwave Encoder: 0.000065, Re-classifier: 0.000065
+Epoch 8/20 | train loss: 7.492 | train acc: 0.010 | val loss: 7.499 | val acc: 0.009
 Epoch 9/20
-Current learning rates - Brainwave Encoder: 0.000058, Re-classifier: 0.000578
-Epoch 9/20 | train loss: 7.514 | train acc: 0.009 | val loss: 7.515 | val acc: 0.010
+Current learning rates - Brainwave Encoder: 0.000058, Re-classifier: 0.000058
+Epoch 9/20 | train loss: 7.489 | train acc: 0.010 | val loss: 7.496 | val acc: 0.010
 Epoch 10/20
-Current learning rates - Brainwave Encoder: 0.000050, Re-classifier: 0.000500
-Epoch 10/20 | train loss: 7.513 | train acc: 0.009 | val loss: 7.518 | val acc: 0.009
+Current learning rates - Brainwave Encoder: 0.000050, Re-classifier: 0.000050
+Epoch 10/20 | train loss: 7.488 | train acc: 0.011 | val loss: 7.497 | val acc: 0.010
 Epoch 11/20
-Current learning rates - Brainwave Encoder: 0.000042, Re-classifier: 0.000422
-Epoch 11/20 | train loss: 7.512 | train acc: 0.009 | val loss: 7.510 | val acc: 0.010
+Current learning rates - Brainwave Encoder: 0.000042, Re-classifier: 0.000042
+Epoch 11/20 | train loss: 7.486 | train acc: 0.010 | val loss: 7.498 | val acc: 0.010
 Epoch 12/20
-Current learning rates - Brainwave Encoder: 0.000035, Re-classifier: 0.000345
-Epoch 12/20 | train loss: 7.510 | train acc: 0.009 | val loss: 7.511 | val acc: 0.010
+Current learning rates - Brainwave Encoder: 0.000035, Re-classifier: 0.000035
+Epoch 12/20 | train loss: 7.486 | train acc: 0.011 | val loss: 7.541 | val acc: 0.010
+New best.
 Epoch 13/20
-Current learning rates - Brainwave Encoder: 0.000027, Re-classifier: 0.000273
-Epoch 13/20 | train loss: 7.509 | train acc: 0.009 | val loss: 7.507 | val acc: 0.010
-New best.
+Current learning rates - Brainwave Encoder: 0.000027, Re-classifier: 0.000027
+Epoch 13/20 | train loss: 7.484 | train acc: 0.011 | val loss: 7.568 | val acc: 0.010
 Epoch 14/20
-Current learning rates - Brainwave Encoder: 0.000021, Re-classifier: 0.000206
-Epoch 14/20 | train loss: 7.507 | train acc: 0.010 | val loss: 7.505 | val acc: 0.010
-New best.
+Current learning rates - Brainwave Encoder: 0.000021, Re-classifier: 0.000021
+Epoch 14/20 | train loss: 7.483 | train acc: 0.011 | val loss: 7.602 | val acc: 0.009
 Epoch 15/20
-Current learning rates - Brainwave Encoder: 0.000015, Re-classifier: 0.000146
-Epoch 15/20 | train loss: 7.506 | train acc: 0.009 | val loss: 7.502 | val acc: 0.010
+Current learning rates - Brainwave Encoder: 0.000015, Re-classifier: 0.000015
+Epoch 15/20 | train loss: 7.482 | train acc: 0.011 | val loss: 7.602 | val acc: 0.010
 Epoch 16/20
-Current learning rates - Brainwave Encoder: 0.000010, Re-classifier: 0.000095
-Epoch 16/20 | train loss: 7.505 | train acc: 0.010 | val loss: 7.502 | val acc: 0.010
+Current learning rates - Brainwave Encoder: 0.000010, Re-classifier: 0.000010
+Epoch 16/20 | train loss: 7.481 | train acc: 0.011 | val loss: 7.553 | val acc: 0.010
+New best.
 Epoch 17/20
-Current learning rates - Brainwave Encoder: 0.000005, Re-classifier: 0.000054
-Epoch 17/20 | train loss: 7.504 | train acc: 0.009 | val loss: 7.502 | val acc: 0.010
+Current learning rates - Brainwave Encoder: 0.000005, Re-classifier: 0.000005
+Epoch 17/20 | train loss: 7.481 | train acc: 0.012 | val loss: 7.553 | val acc: 0.011
+New best.
 Epoch 18/20
-Current learning rates - Brainwave Encoder: 0.000002, Re-classifier: 0.000024
-Epoch 18/20 | train loss: 7.503 | train acc: 0.010 | val loss: 7.502 | val acc: 0.010
+Current learning rates - Brainwave Encoder: 0.000002, Re-classifier: 0.000002
+Epoch 18/20 | train loss: 7.480 | train acc: 0.012 | val loss: 7.552 | val acc: 0.010
 Epoch 19/20
-Current learning rates - Brainwave Encoder: 0.000001, Re-classifier: 0.000006
-Epoch 19/20 | train loss: 7.504 | train acc: 0.010 | val loss: 7.501 | val acc: 0.010
+Current learning rates - Brainwave Encoder: 0.000001, Re-classifier: 0.000001
+Epoch 19/20 | train loss: 7.479 | train acc: 0.012 | val loss: 7.548 | val acc: 0.011
+New best.
 Epoch 20/20
 Current learning rates - Brainwave Encoder: 0.000000, Re-classifier: 0.000000
-Epoch 20/20 | train loss: 7.503 | train acc: 0.010 | val loss: 7.501 | val acc: 0.010
-Submission (16432, 1854) saved at /content/dl_lecture_competition_pub/outputs/2024-07-17/16-53-46
+Epoch 20/20 | train loss: 7.480 | train acc: 0.012 | val loss: 7.548 | val acc: 0.011
+Submission (16432, 1854) saved at /content/dl_lecture_competition_pub/outputs/2024-07-17/22-52-20

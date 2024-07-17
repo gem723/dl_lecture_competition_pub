@@ -47,7 +47,7 @@ def run(args: DictConfig):
     ).to(args.device)
 
     # 事前学習したモデルの読み込み
-    pretrained_dict = torch.load("pretrained_models/best_pretrained_clip_model.pth")
+    pretrained_dict = torch.load("pretrained_models/final_pretrained_clip_model.pth")
     model_dict = model.state_dict()
 
     # 事前学習済みの重みを部分的にロード
@@ -72,7 +72,7 @@ def run(args: DictConfig):
     # ------------------
     # オプティマイザの設定
     optimizer = torch.optim.AdamW([
-        {'params': model.brainwave_encoder.parameters(), 'lr': args.lr * 0.1},  # 低い学習率
+        {'params': model.brainwave_encoder.parameters(), 'lr': args.lr},  # 低い学習率
         {'params': model.re_classifier.parameters(), 'lr': args.lr}  # 通常の学習率
     ], weight_decay=args.weight_decay)
 

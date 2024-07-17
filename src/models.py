@@ -22,9 +22,16 @@ class BrainwaveEncoder(nn.Module):
     def __init__(self, seq_len, in_channels, out_feature_dim=1536): # ConvNeXt-Largeの出力特徴量は1536次元
         super().__init__()
         self.conv_classifier = ImprovedConvClassifier(out_feature_dim, seq_len, in_channels)
+        # self.re_classifier = nn.Sequential(
+        #     nn.Linear(out_feature_dim, out_feature_dim),
+        #     nn.Dropout(0.25),
+        #     nn.Linear(out_feature_dim, out_feature_dim),
+        #     nn.Dropout(0.25),
+        # )
 
     def forward(self, x):
-        return self.conv_classifier(x)
+        x = self.conv_classifier(x)
+        return x
 
 class CLIPModel(nn.Module):
     def __init__(self, num_classes, seq_len, in_channels, out_feature_dim=1536):
@@ -33,9 +40,9 @@ class CLIPModel(nn.Module):
         self.brainwave_encoder = BrainwaveEncoder(seq_len, in_channels, out_feature_dim)
         self.re_classifier = nn.Sequential(
             nn.Linear(out_feature_dim, num_classes),
-            nn.Dropout(0.25),
-            nn.Linear(num_classes, num_classes),
-            nn.Dropout(0.25),
+            # nn.Dropout(0.25),
+            # nn.Linear(num_classes, num_classes),
+            # nn.Dropout(0.25),
         )
 
     def forward(self, brainwaves, images=None):
