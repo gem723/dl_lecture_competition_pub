@@ -1,75 +1,18 @@
 Loaded processed data from processed/train_processed.pt
 Loaded processed data from processed/val_processed.pt
 Loaded processed data from processed/test_processed.pt
+Pretrained weights loaded successfully
 Epoch 1/20
-Current learning rate: 0.000994
-Epoch 1/20 | train loss: 7.556 | train acc: 0.007 | val loss: 7.516 | val acc: 0.010
+Current learning rate: 0.000100
+Epoch 1/20 | train loss: 7.498 | train acc: 0.011 | val loss: 7.500 | val acc: 0.015
 New best.
 Epoch 2/20
-Current learning rate: 0.000976
-Epoch 2/20 | train loss: 7.510 | train acc: 0.011 | val loss: 7.497 | val acc: 0.012
+Current learning rate: 0.000099
+Epoch 2/20 | train loss: 7.432 | train acc: 0.017 | val loss: 7.509 | val acc: 0.017
 New best.
 Epoch 3/20
-Current learning rate: 0.000946
-Epoch 3/20 | train loss: 7.483 | train acc: 0.012 | val loss: 7.485 | val acc: 0.014
+Current learning rate: 0.000098
+Epoch 3/20 | train loss: 7.394 | train acc: 0.019 | val loss: 7.576 | val acc: 0.018
 New best.
 Epoch 4/20
-Current learning rate: 0.000905
-Epoch 4/20 | train loss: 7.456 | train acc: 0.014 | val loss: 7.470 | val acc: 0.016
-New best.
-Epoch 5/20
-Current learning rate: 0.000854
-Epoch 5/20 | train loss: 7.432 | train acc: 0.016 | val loss: 7.465 | val acc: 0.017
-New best.
-Epoch 6/20
-Current learning rate: 0.000794
-Epoch 6/20 | train loss: 7.406 | train acc: 0.018 | val loss: 7.474 | val acc: 0.018
-New best.
-Epoch 7/20
-Current learning rate: 0.000727
-Epoch 7/20 | train loss: 7.381 | train acc: 0.019 | val loss: 7.470 | val acc: 0.017
-Epoch 8/20
-Current learning rate: 0.000655
-Epoch 8/20 | train loss: 7.355 | train acc: 0.022 | val loss: 7.490 | val acc: 0.019
-New best.
-Epoch 9/20
-Current learning rate: 0.000578
-Epoch 9/20 | train loss: 7.331 | train acc: 0.023 | val loss: 7.483 | val acc: 0.020
-New best.
-Epoch 10/20
-Current learning rate: 0.000500
-Epoch 10/20 | train loss: 7.306 | train acc: 0.025 | val loss: 7.479 | val acc: 0.020
-New best.
-Epoch 11/20
-Current learning rate: 0.000422
-Epoch 11/20 | train loss: 7.278 | train acc: 0.027 | val loss: 7.502 | val acc: 0.019
-Epoch 12/20
-Current learning rate: 0.000345
-Epoch 12/20 | train loss: 7.254 | train acc: 0.028 | val loss: 7.505 | val acc: 0.021
-New best.
-Epoch 13/20
-Current learning rate: 0.000273
-Epoch 13/20 | train loss: 7.229 | train acc: 0.031 | val loss: 7.508 | val acc: 0.021
-New best.
-Epoch 14/20
-Current learning rate: 0.000206
-Epoch 14/20 | train loss: 7.204 | train acc: 0.033 | val loss: 7.530 | val acc: 0.019
-Epoch 15/20
-Current learning rate: 0.000146
-Epoch 15/20 | train loss: 7.188 | train acc: 0.035 | val loss: 7.535 | val acc: 0.019
-Epoch 16/20
 Current learning rate: 0.000095
-Epoch 16/20 | train loss: 7.169 | train acc: 0.037 | val loss: 7.544 | val acc: 0.019
-Epoch 17/20
-Current learning rate: 0.000054
-Epoch 17/20 | train loss: 7.157 | train acc: 0.038 | val loss: 7.558 | val acc: 0.019
-Epoch 18/20
-Current learning rate: 0.000024
-Epoch 18/20 | train loss: 7.147 | train acc: 0.039 | val loss: 7.563 | val acc: 0.019
-Epoch 19/20
-Current learning rate: 0.000006
-Epoch 19/20 | train loss: 7.143 | train acc: 0.039 | val loss: 7.564 | val acc: 0.019
-Epoch 20/20
-Current learning rate: 0.000000
-Epoch 20/20 | train loss: 7.142 | train acc: 0.039 | val loss: 7.565 | val acc: 0.019
-Submission (16432, 1854) saved at /content/dl_lecture_competition_pub/outputs/2024-07-16/01-21-32

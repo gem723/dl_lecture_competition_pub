@@ -10,7 +10,7 @@ from termcolor import cprint
 from tqdm import tqdm
 
 from src.datasets import ThingsMEGDataset
-from src.models import BasicConvClassifier, ImprovedConvClassifier
+from src.models import BasicConvClassifier, ImprovedConvClassifier, CLIPModel
 from src.utils import set_seed
 
 
@@ -39,9 +39,29 @@ def run(args: DictConfig):
     # ------------------
     #       Model
     # ------------------
-    model = ImprovedConvClassifier(
-        train_set.num_classes, train_set.seq_len, train_set.num_channels
+    # モデルの初期化
+    model = CLIPModel(
+        train_set.num_classes, train_set.seq_len, train_set.num_channels, embedding_dim=512
     ).to(args.device)
+
+    # 事前学習したモデルの読み込み
+    pretrained_dict = torch.load("pretrained_clip_model.pth")
+    model_dict = model.state_dict()
+
+    # 事前学習済みの重みを部分的にロード
+    pretrained_dict = {k: v for k, v in pretrained_dict.items() if k in model_dict}
+    model_dict.update(pretrained_dict)
+    model.load_state_dict(model_dict)
+
+    print("Pretrained weights loaded successfully")
+
+    # classifier層の初期化（オプション）
+    torch.nn.init.xavier_uniform_(model.classifier.weight)
+    torch.nn.init.zeros_(model.classifier.bias)
+
+    # 脳波エンコーダーのみをファインチューニング
+    for param in model.image_encoder.parameters():
+        param.requires_grad = False
 
     # ------------------
     #     Optimizer
@@ -62,9 +82,6 @@ def run(args: DictConfig):
       
     for epoch in range(args.epochs):
         print(f"Epoch {epoch+1}/{args.epochs}")
-        
-        # 学習率のスケジューリング
-        scheduler.step()
     
         # 現在の学習率をログに記録
         current_lr = optimizer.param_groups[0]['lr']
@@ -76,7 +93,16 @@ def run(args: DictConfig):
         for X, y, subject_idxs in tqdm(train_loader, desc="Train"):
             X, y = X.to(args.device), y.to(args.device)
 
+            # デバイスの一貫性を確認
+            # print(f"Device - model: {next(model.parameters()).device}, X: {X.device}, y: {y.device}")
+
+            # ラベルの範囲を確認
+            # print(f"y min: {y.min()}, y max: {y.max()}, num_classes: {model.brainwave_encoder.conv_classifier.head[-1].out_features}")
+
             y_pred = model(X)
+
+            # モデルの出力とラベルの形状を確認
+            # print(f"y_pred shape: {y_pred.shape}, y shape: {y.shape}")
             
             loss = F.cross_entropy(y_pred, y)
             train_loss.append(loss.item())
@@ -97,7 +123,10 @@ def run(args: DictConfig):
             
             val_loss.append(F.cross_entropy(y_pred, y).item())
             val_acc.append(accuracy(y_pred, y).item())
-
+        
+        # 学習率のスケジューリング
+        scheduler.step()
+        
         print(f"Epoch {epoch+1}/{args.epochs} | train loss: {np.mean(train_loss):.3f} | train acc: {np.mean(train_acc):.3f} | val loss: {np.mean(val_loss):.3f} | val acc: {np.mean(val_acc):.3f}")
         torch.save(model.state_dict(), os.path.join(logdir, "model_last.pt"))
         if args.use_wandb:
