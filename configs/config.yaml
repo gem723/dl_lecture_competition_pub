@@ -12,4 +12,3 @@ data_dir: data
 
 # Evaluation
 model_path: 
-
