@@ -172,6 +172,3 @@ cython_debug/
 
 # additions
 processed/
-
-extracted/
-pretrained_models/

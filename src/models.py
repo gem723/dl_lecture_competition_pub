@@ -3,56 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from einops.layers.torch import Rearrange
 from torch.nn import TransformerEncoder, TransformerEncoderLayer
-from torchvision.models import convnext_large, ConvNeXt_Large_Weights
 
-class ImageEncoder(nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.feature_extractor = convnext_large(weights=ConvNeXt_Large_Weights.IMAGENET1K_V1)
-        self.feature_extractor.classifier = nn.Identity()  # Remove the original classifier
-
-    def extract_features(self, x):
-        with torch.no_grad():
-            return self.feature_extractor(x)
-
-    def forward(self, x):
-        return self.extract_features(x)
-
-class BrainwaveEncoder(nn.Module):
-    def __init__(self, seq_len, in_channels, out_feature_dim=1536): # ConvNeXt-Largeの出力特徴量は1536次元
-        super().__init__()
-        self.conv_classifier = ImprovedConvClassifier(out_feature_dim, seq_len, in_channels)
-        # self.re_classifier = nn.Sequential(
-        #     nn.Linear(out_feature_dim, out_feature_dim),
-        #     nn.Dropout(0.25),
-        #     nn.Linear(out_feature_dim, out_feature_dim),
-        #     nn.Dropout(0.25),
-        # )
-
-    def forward(self, x):
-        x = self.conv_classifier(x)
-        return x
-
-class CLIPModel(nn.Module):
-    def __init__(self, num_classes, seq_len, in_channels, out_feature_dim=1536):
-        super().__init__()
-        self.image_encoder = ImageEncoder()
-        self.brainwave_encoder = BrainwaveEncoder(seq_len, in_channels, out_feature_dim)
-        self.re_classifier = nn.Sequential(
-            nn.Linear(out_feature_dim, num_classes),
-            # nn.Dropout(0.25),
-            # nn.Linear(num_classes, num_classes),
-            # nn.Dropout(0.25),
-        )
-
-    def forward(self, brainwaves, images=None):
-        if images is not None:
-            image_embeddings = self.image_encoder(images)
-            brainwave_embeddings = self.brainwave_encoder(brainwaves)
-            return image_embeddings, brainwave_embeddings
-        else:
-            brainwave_embeddings = self.brainwave_encoder(brainwaves)
-            return self.re_classifier(brainwave_embeddings)
 
 class BasicConvClassifier(nn.Module):
     def __init__(
